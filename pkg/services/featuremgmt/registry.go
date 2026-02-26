@@ -265,6 +265,22 @@ var (
 			Expression:      "false",
 		},
 		{
+			Name:            "provisioningFolderMetadata",
+			Description:     "Allow setting folder metadata for provisioned folders",
+			Stage:           FeatureStageExperimental,
+			RequiresRestart: true,
+			Owner:           grafanaAppPlatformSquad,
+			Expression:      "false",
+		},
+		{
+			Name:            "provisioningExport",
+			Description:     "Enable export functionality for provisioned resources",
+			Stage:           FeatureStageExperimental,
+			RequiresRestart: true,
+			Owner:           grafanaAppPlatformSquad,
+			Expression:      "false",
+		},
+		{
 			Name:            "grafanaAPIServerEnsureKubectlAccess",
 			Description:     "Start an additional https handler and write kubectl options",
 			Stage:           FeatureStageExperimental,
@@ -1001,6 +1017,14 @@ var (
 			Expression:   "false",
 		},
 		{
+			Name:         "alertingTriageSavedSearches",
+			Description:  "Enables saved searches for the Alert Activity page",
+			Stage:        FeatureStageExperimental,
+			Owner:        grafanaAlertingSquad,
+			FrontendOnly: true,
+			Expression:   "false",
+		},
+		{
 			Name:         "alertingDisableSendAlertsExternal",
 			Description:  "Disables the ability to send alerts to an external Alertmanager datasource.",
 			Stage:        FeatureStageExperimental,
@@ -1119,13 +1143,6 @@ var (
 			Owner:           grafanaAppPlatformSquad,
 			RequiresRestart: true,
 			Expression:      "false",
-		},
-		{
-			Name:        "newFiltersUI",
-			Description: "Enables new combobox style UI for the Ad hoc filters variable in scenes architecture",
-			Stage:       FeatureStageGeneralAvailability,
-			Owner:       grafanaDashboardsSquad,
-			Expression:  "true", // enabled by default
 		},
 		{
 			Name:         "vizActionsAuth",
@@ -1841,6 +1858,14 @@ var (
 			Expression:   "false",
 		},
 		{
+			Name:         "createdByMeSearchFilter",
+			Description:  "Enables the created by me search filter on the browse dashboards page",
+			Stage:        FeatureStageExperimental,
+			Owner:        grafanaFrontendNavigation,
+			FrontendOnly: true,
+			Expression:   "false",
+		},
+		{
 			Name:         "alertEnrichment",
 			Description:  "Enable configuration of alert enrichments in Grafana Cloud.",
 			Stage:        FeatureStageExperimental,
@@ -1901,13 +1926,6 @@ var (
 			Description: "Prefer library panel title over viz panel title.",
 			Stage:       FeatureStagePrivatePreview,
 			Owner:       grafanaDashboardsSquad,
-			Expression:  "false",
-		},
-		{
-			Name:        "tabularNumbers",
-			Description: "Use fixed-width numbers globally in the UI",
-			Stage:       FeatureStageGeneralAvailability,
-			Owner:       grafanaFrontendPlatformSquad,
 			Expression:  "false",
 		},
 		{
@@ -1988,11 +2006,11 @@ var (
 		{
 			Name:         "restrictedPluginApis",
 			Description:  "Enables sharing a list of APIs with a list of plugins",
-			Stage:        FeatureStageExperimental,
+			Stage:        FeatureStageGeneralAvailability,
 			Owner:        grafanaPluginsPlatformSquad,
 			HideFromDocs: true,
 			FrontendOnly: true,
-			Expression:   "false",
+			Expression:   "true",
 		},
 		{
 			Name:         "favoriteDatasources",
@@ -2440,6 +2458,38 @@ var (
 			Owner:        grafanaFrontendPlatformSquad,
 			Expression:   "false",
 			HideFromDocs: true,
+		},
+		{
+			Name:         "functionalSharedPreferences",
+			Description:  "Whether to use the new SharedPreferences functional component",
+			Stage:        FeatureStageExperimental,
+			FrontendOnly: true,
+			Owner:        grafanaFrontendPlatformSquad,
+			Expression:   "false",
+		},
+		{
+			Name:         "managedPluginsV2",
+			Description:  "Enables managed plugins v2 (expanded rollout, community plugin coverage)",
+			Stage:        FeatureStageExperimental,
+			HideFromDocs: true,
+			Owner:        grafanaPluginsPlatformSquad,
+			Expression:   "false",
+		},
+		{
+			Name:         "rememberUserOrgForSso",
+			Description:  "Remember the last viewed organization for users using SSO",
+			Stage:        FeatureStageGeneralAvailability,
+			Owner:        identityAccessTeam,
+			HideFromDocs: true,
+			Expression:   "true", // enabled by default
+		},
+		{
+			Name:         "dsAbstractionApp",
+			Description:  "Registers the dsabstraction app for querying datasources via unified SQL",
+			Stage:        FeatureStageExperimental,
+			Owner:        grafanaDatasourcesCoreServicesSquad,
+			HideFromDocs: true,
+			Expression:   "false",
 		},
 	}
 )
