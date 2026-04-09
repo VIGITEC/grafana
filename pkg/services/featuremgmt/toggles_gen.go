@@ -890,6 +890,10 @@ const (
 	// Enables new analytics framework
 	FlagAnalyticsFramework = "analyticsFramework"
 
+	// FlagDatasourcesApiServerEnableHealthEndpointRedirect
+	// Redirect datasource health requests from the legacy API routes to the new datasource api group endpoints.
+	FlagDatasourcesApiServerEnableHealthEndpointRedirect = "datasourcesApiServerEnableHealthEndpointRedirect"
+
 	// FlagAdvisorDatasourceIntegration
 	// Enables the advisor report integration with datasource pages
 	FlagAdvisorDatasourceIntegration = "advisorDatasourceIntegration"
@@ -929,4 +933,8 @@ const (
 	// FlagCacheConfigUnifiedStorageMigration
 	// Enables cache configs data migration to unified storage
 	FlagCacheConfigUnifiedStorageMigration = "cacheConfigUnifiedStorageMigration"
+
+	// FlagCompiledBootScript
+	// Boots the frontend using the boot.js script built from TS instead of the embedded boot script
+	FlagCompiledBootScript = "compiledBootScript"
 )
